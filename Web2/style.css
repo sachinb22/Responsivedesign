@@ -1,0 +1,164 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	font-family: 'Poppins',sans-serif;
+	background: #000;
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.box{
+	background: #111;
+	position: relative;
+	height: 350px;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	overflow: hidden;
+
+}
+
+.box::before{
+	content: '';
+	background: #111;
+	background: radial-gradient(ellipse at center,
+		rgba(243 255 146 / 75%) 0%, #111 60%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	animation: bg-swing 2s ease-in-out 2s infinite
+	alternate;
+}
+
+@keyframes bg-swing{
+	from{
+		transform: translate3d(-5%, 0, 0);
+	}
+	to{
+		transform: translate3d(5%, 0, 0);
+	}
+}
+
+.bulb-wire{
+	position: absolute;
+	left: 50%;
+	height: 80px;
+	width: 0;
+	top: 0;
+	border-left: 1px solid #000;
+	transform: rotateX(45deg);
+	transform-origin: 0 0;
+	animation: bulb-swing 2s ease-in-out 2s infinite
+	alternate
+
+}
+@keyframes bulb-swing{
+	from{
+		transform: rotate(55deg);
+	}
+	to{
+		transform: rotate(-55deg);
+	}
+}
+.fa-lightbulb-o{
+	position: absolute;
+	left: -7px;
+	bottom: -20px;
+	font-size: 25px;
+	transform: rotatex(180deg);
+}
+.fa-lightbulb-o::after{
+	content: '';
+	display: block;
+	position: absolute;
+	background: yellow;
+	width: 10px;
+	height: 10px;
+	border-radius: 100%;
+	top: 3px;
+	left: 2px;
+	z-index: -1;
+}
+
+.bulb-glow{
+	background: yellow;
+	background: radial-gradient(ellipse at center,
+		rgba(255, 255, 0, 1) 20%, rgba(255,255,0,0) 70% );
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	bottom: -93px;
+	margin-left: -75px;
+	border-radius: 100%;
+	z-index: -1;
+	opacity: .60;
+	animation: bulb-light 2s ease-in-out 2s infinite
+	alternate;
+
+}
+@keyframes bulb-light {
+	from{
+		background-color: rgba(255, 255, 0, 0);
+	}
+	to{
+		background-color: rgba(255, 255, 0, 0);
+		
+	}
+}
+.text,
+.text span{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 380px;
+	margin-left: -170px;
+	font-size: 4rem;
+	text-transform: uppercase;
+	height: 150px;
+	line-height: 166px;
+	margin-top: -75px;
+	perspective: 1000px;
+	font-weight: 800;
+
+}
+.text span::before{
+	content: 'COOLMAN';
+	padding: 25px;
+	transform: scaleY(-.25) skew(20deg);
+	opacity: .25;
+	background: linear-gradient(#111 0%,#000 80%)
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	position: absolute;
+	text-shadow: 0 0 10px #000;
+	top:10px;
+	margin-left: -50px;
+	animation: text-shadow 2s ease-in-out 2s infinite
+	alternate;
+
+}
+
+@keyframes text-shadow{
+	0%{
+		transform: scaleY(-.25) skew(-20deg);
+		left: 40px;
+	}
+	100%{
+		transform: scaleY(-.25) skew(20deg);
+		left: 0px;
+		
+	}
+}
